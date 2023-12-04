@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 # DSI-Capstone
 Predicting MLB Game Outcome
 
 Games from seasons 1989(earthquake WS) - 2023 from Retro
+=======
+# DSI-Capstone - Predicting MLB Game Outcome
+
+### Problem Statement
+I am a MLB 
+Games from seasons 1989(earthquake WS) - 2022 from Retro
+>>>>>>> 3ca44d4 (juddy checkpoint)
 Read in one season to get grasp of data then read in all the data
 Added 'run_diff' 
 Feature engineering
