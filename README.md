@@ -1,11 +1,7 @@
 # DSI-Capstone - Predicting MLB Game Outcome
 
 ### Problem Statement
-I am a MLB 
-Games from seasons 1989(earthquake WS) - 2022 from Retro
-Read in one season to get grasp of data then read in all the data
-Added 'run_diff' 
-Feature engineering
+Sports betting bsuiness for baseball
 
 Is it clear what the goal of the project is?
 What type of model will be developed?
@@ -13,7 +9,8 @@ How will success be evaluated?
 Is the scope of the project appropriate?
 Is it clear who cares about this or why this is important to investigate?
 Does the student consider the audience and the primary and secondary stakeholders?
-Data Collection
+
+### Data Collection and Cleaning
 
 Was enough data gathered to generate a significant result? (At least 1000 posts per subreddit)
 Was data collected that was useful and relevant to the project?
@@ -27,7 +24,8 @@ Are outliers identified and addressed?
 Are appropriate summary statistics provided?
 Are steps taken during data cleaning and EDA framed appropriately?
 Does the student address whether or not they are likely to be able to answer their problem statement with the provided data given what they've discovered during EDA?
-Preprocessing and Modeling
+
+### Preprocessing and Modeling
 
 Is text data successfully converted to a matrix representation?
 Are methods such as stop words, stemming, and lemmatization explored?
@@ -42,7 +40,8 @@ Does the student select and use metrics relevant to the problem objective?
 Does the student interpret the results of their model for purposes of inference?
 Is domain knowledge demonstrated when interpreting results?
 Does the student provide appropriate interpretation with regards to descriptive and inferential statistics?
-Conclusion and Recommendations
+
+### Conclusion and Recommendations
 
 Does the student provide appropriate context to connect individual steps back to the overall project?
 Is it clear how the final recommendations were reached?
