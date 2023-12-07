@@ -1,8 +1,7 @@
 # DSI-Capstone - MLB Odds Predictor
 
 ### Problem Statement
-MLB Outcomes App
-I want to build a baseball betting consulting app that can guide sports bettors to smarter betting decisions. I have been given game data from Retrosheet that has the stats for each game with the respective home and visiting teams game statistics.   
+I want to build a baseball betting consulting app that can guide sports bettors on educated betting decisions. I downloaded data from retrosheet.org that has the stats for each game with the respective home and visiting teams game statistics.      
 
 ### Data Collection and Cleaning
 I sought guidance from my friend Adam when struggling to find usable data, and he directed me to Retrosheet game data. I gathered game records spanning the last 33 years, commencing from the seismic 1989 World Series. To align with Retrosheet's data dictionary, I meticulously relabeled column names. For my target variables, I introduced columns for run differentials, total runs, home team win/loss, and visitor team win/loss. To enhance data quality, I addressed missing values, removed redundant columns, and binarized boolean features. Leveraging the pandas rolling sum function, I transformed certain features to capture historical trends over the standard 162-game season. Additionally, I engineered new features by calculating ratios between existing ones to derive averages. Finally, I split the data frame at the year 2020 to create a testing dataset for model evaluation.
