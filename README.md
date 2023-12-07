@@ -1,91 +1,11 @@
-# DSI-Capstone - Predicting MLB Game Outcome
+# DSI-Capstone - MLB Odds Predictor
 
 ### Problem Statement
-Sports betting bsuiness for baseball
-
-Is it clear what the goal of the project is?
-What type of model will be developed?
-How will success be evaluated?
-Is the scope of the project appropriate?
-Is it clear who cares about this or why this is important to investigate?
-Does the student consider the audience and the primary and secondary stakeholders?
+MLB Outcomes App
+I want to build a baseball betting consulting app that can guide sports bettors to smarter betting decisions. I have been given game data from Retrosheet that has the stats for each game with the respective home and visiting teams game statistics.   
 
 ### Data Collection and Cleaning
-
-Was enough data gathered to generate a significant result? (At least 1000 posts per subreddit)
-Was data collected that was useful and relevant to the project?
-Was data collection and storage optimized through custom functions, pipelines, and/or automation?
-Was thought given to the server receiving the requests such as considering number of requests per second?
-Data Cleaning and EDA
-
-Are missing values imputed/handled appropriately?
-Are distributions examined and described?
-Are outliers identified and addressed?
-Are appropriate summary statistics provided?
-Are steps taken during data cleaning and EDA framed appropriately?
-Does the student address whether or not they are likely to be able to answer their problem statement with the provided data given what they've discovered during EDA?
-
-### Preprocessing and Modeling
-
-Is text data successfully converted to a matrix representation?
-Are methods such as stop words, stemming, and lemmatization explored?
-Does the student properly split and/or sample the data for validation/training purposes?
-Does the student test and evaluate a variety of models to identify a production algorithm (AT MINIMUM: two models)?
-Does the student defend their choice of production model relevant to the data at hand and the problem?
-Does the student explain how the model works and evaluate its performance successes/downfalls?
-Evaluation and Conceptual Understanding
-
-Does the student accurately identify and explain the baseline score?
-Does the student select and use metrics relevant to the problem objective?
-Does the student interpret the results of their model for purposes of inference?
-Is domain knowledge demonstrated when interpreting results?
-Does the student provide appropriate interpretation with regards to descriptive and inferential statistics?
-
-### Conclusion and Recommendations
-
-Does the student provide appropriate context to connect individual steps back to the overall project?
-Is it clear how the final recommendations were reached?
-Are the conclusions/recommendations clearly stated?
-Does the conclusion answer the original problem statement?
-Does the student address how findings of this research can be applied for the benefit of stakeholders?
-Are future steps to move the project forward identified?
-Organization and Professionalism
-Project Organization
-
-Are modules imported correctly (using appropriate aliases)?
-Are data imported/saved using relative paths?
-Does the README provide a good executive summary of the project?
-Is markdown formatting used appropriately to structure notebooks?
-Are there an appropriate amount of comments to support the code?
-Are files & directories organized correctly?
-Are there unnecessary files included?
-Do files and directories have well-structured, appropriate, consistent names?
-Visualizations
-
-Are sufficient visualizations provided?
-Do plots accurately demonstrate valid relationships?
-Are plots labeled properly?
-Are plots interpreted appropriately?
-Are plots formatted and scaled appropriately for inclusion in a notebook-based technical report?
-Python Syntax and Control Flow
-
-Is care taken to write human readable code?
-Is the code syntactically correct (no runtime errors)?
-Does the code generate desired results (logically correct)?
-Does the code follows general best practices and style guidelines?
-Are Pandas functions used appropriately?
-Are sklearn and NLTK methods used appropriately?
-Presentation
-
-Is the problem statement clearly presented?
-Does a strong narrative run through the presentation building toward a final conclusion?
-Are the conclusions/recommendations clearly stated?
-Is the level of technicality appropriate for the intended audience?
-Is the student substantially over or under time?
-Does the student appropriately pace their presentation?
-Does the student deliver their message with clarity and volume?
-Are appropriate visualizations generated for the intended audience?
-Are visualizations necessary and useful for supporting conclusions/explaining findings?
+I sought guidance from my friend Adam when struggling to find usable data, and he directed me to Retrosheet game data. I gathered game records spanning the last 33 years, commencing from the seismic 1989 World Series. To align with Retrosheet's data dictionary, I meticulously relabeled column names. For my target variables, I introduced columns for run differentials, total runs, home team win/loss, and visitor team win/loss. To enhance data quality, I addressed missing values, removed redundant columns, and binarized boolean features. Leveraging the pandas rolling sum function, I transformed certain features to capture historical trends over the standard 162-game season. Additionally, I engineered new features by calculating ratios between existing ones to derive averages. Finally, I split the data frame at the year 2020 to create a testing dataset for model evaluation.
 
 ## Data Dictionary
 Field(s)  Meaning
@@ -223,3 +143,18 @@ Field(s)  Meaning
                     innings at the beginning, middle and end of the game.
  
 Missing fields will be NULL.
+
+### EDA
+I explored certain features by comparing them to y-variables and other features that make up the y-variable. I did not realize there were ties in baseball and it turns out I found a crazy game on 9/30/2001 where a day game between the Orioles and the Yankees went 15 innings, over 5 hours, and the game ended in a tie at 1-1. I created a correlation heat map to show how well certain features relate to each other and there are bar graphs to show the overall run differential and wins-loss for each team over the last 33 years.
+
+### Preprocessing and Modeling
+
+Incorporating additional features such as RBIs, stolen base success rates, runners left on base, strikeout ratios, and walk ratios. I wanted to frame the models mostly on offense and hitting statistics, but there some features I could not avoid like earned runs, errors, and double plays. Even the the defensive and pitching data is a bit dull I still wanted to include it to get the best model possible. My training data spanned the years 1989 to 2000, while the testing data covered games from 2001 to 2002. Utilizing One Hot Encoder for categorical columns like ballpark and manager, I observed that these factors didn't significantly impact the model, prompting me to focus predominantly on numerical data. To streamline the classification task, I excluded games resulting in ties, concentrating solely on outcomes categorized as wins or losses.
+
+My best models results are as follows:
+Run Differential - Random Forest Regressor  - 86.3% R2 score
+Total Runs - Linear Regression - 86.4% R2 score
+winner - Random Forest Classifier - 91.8% Accuracy
+
+### Conclusion and Recommendations
+In conclusion, the developed models exhibit a certain level of confidence, however, there remains room for further refinement through additional feature engineering to gauge their impact on predictive accuracy. Future iterations could consider incorporating more comprehensive pitching statistics such as WHIP, ERA, K/9, and HR/9 to enhance the models' predictive capabilities. Exploring individual player strengths and assessing how they influence overall game outcomes could offer valuable insights for more nuanced predictions. Additionally, a commitment to regularly updating the game data will ensure the incorporation of the most up-to-date statistics, maintaining the models' relevance and accuracy over time. This iterative approach to feature enhancement and continuous data updating will contribute to the models' ongoing effectiveness and adaptability.
