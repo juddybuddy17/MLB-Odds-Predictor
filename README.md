@@ -7,7 +7,8 @@ I want to build a baseball betting consulting app that can guide sports bettors 
 I sought guidance from my friend Adam when struggling to find usable data, and he directed me to Retrosheet game data. I gathered game records spanning the last 33 years, commencing from the seismic 1989 World Series. To align with Retrosheet's data dictionary, I meticulously relabeled column names. For my target variables, I introduced columns for run differentials, total runs, home team win/loss, and visitor team win/loss. To enhance data quality, I addressed missing values, removed redundant columns, and binarized boolean features. Leveraging the pandas rolling sum function, I transformed certain features to capture historical trends over the standard 162-game season. Additionally, I engineered new features by calculating ratios between existing ones to derive averages. Finally, I split the data frame at the year 2020 to create a testing dataset for model evaluation.
 
 ## Data Dictionary
-See under 
+"Guide to Retrosheet Game Logs" at https://www.retrosheet.org/gamelogs/index.html
+
 ### EDA
 I explored certain features by comparing them to y-variables and other features that make up the y-variable. I did not realize there were ties in baseball and it turns out I found a crazy game on 9/30/2001 where a day game between the Orioles and the Yankees went 15 innings, over 5 hours, and the game ended in a tie at 1-1. I created a correlation heat map to show how well certain features relate to each other and there are bar graphs to show the overall run differential and wins-loss for each team over the last 33 years.
 
